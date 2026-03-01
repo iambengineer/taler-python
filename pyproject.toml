@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "taler-python"
+dynamic = ["version"]
+description = 'Python SDK for GNU Taler'
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Benjamin Kusen", email = "benjamin.kusen@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/Benjamin Kusen/taler-python#readme"
+Issues = "https://github.com/Benjamin Kusen/taler-python/issues"
+Source = "https://github.com/Benjamin Kusen/taler-python"
+
+[tool.hatch.version]
+path = "src/taler_python/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/taler_python tests}"
+
+[tool.coverage.run]
+source_pkgs = ["taler_python", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/taler_python/__about__.py",
+]
+
+[tool.coverage.paths]
+taler_python = ["src/taler_python", "*/taler-python/src/taler_python"]
+tests = ["tests", "*/taler-python/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
