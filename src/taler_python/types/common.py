@@ -23,13 +23,11 @@ class RoundingInterval (StrEnum):
 EddsaPublicKey: TypeAlias = str
 
 
-# TODO ExchangeConfigInfo
 class ExchangeConfigInfo (BaseModel):
     base_url: str
     currency: str
     master_pub: EddsaPublicKey
 
-# TODO CurrencySpecification
 class CurrencySpecification (BaseModel):
     name: str
     currency: str

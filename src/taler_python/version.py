@@ -7,7 +7,7 @@ from typing import NamedTuple
 # Target protocol versions for this SDK release.
 # Merchant API v27, Exchange API v32.
 MERCHANT_PROTOCOL_VERSION = 27
-EXCHANGE_PROTOCOL_VERSION = 32
+# EXCHANGE_PROTOCOL_VERSION = 32
 
 
 class LibtoolVersion(NamedTuple):
